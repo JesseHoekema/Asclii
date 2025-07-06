@@ -1,0 +1,52 @@
+import random
+import pyfiglet
+
+_available_fonts = [
+    "slant", "block", "standard", "digital", "big", "small",
+    "banner", "doom", "ghost", "gothic", "graffiti", "isometric1",
+    "larry3d", "mini", "script", "shadow", "speed", "starwars"
+]
+
+_random_art_patterns = [
+    "★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆",
+    "◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇",
+    "▲ ▼ ▲ ▼ ▲ ▼ ▲ ▼ ▲ ▼",
+    "♦ ♢ ♦ ♢ ♦ ♢ ♦ ♢ ♦ ♢",
+    "▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░",
+    "═══════════════════════",
+    "┌─┬─┬─┬─┬─┬─┬─┬─┬─┬─┐",
+    "╔═╦═╦═╦═╦═╦═╦═╦═╦═╦═╗"
+]
+
+def generateAscii(style: str, text: str) -> str:
+    """
+    Generate ASCII art from text using the specified style (font).
+
+    Parameters:
+    - style (str): The font style to use. Available styles are:
+      slant, block, standard, digital, big, small,
+      banner, doom, ghost, gothic, graffiti, isometric1,
+      larry3d, mini, script, shadow, speed, starwars
+
+    - text (str): The text to convert into ASCII art.
+
+    If the style is invalid, it falls back to 'standard'.
+    """
+    if style not in _available_fonts:
+        style = "standard"
+    try:
+        return pyfiglet.figlet_format(text, font=style)
+    except Exception:
+        return pyfiglet.figlet_format(text, font="standard")
+
+def randomAscii() -> str:
+    """
+    Generate a random ASCII art surprise string,
+    mixing random patterns and a random word rendered in a random font.
+    """
+    patterns = [random.choice(_random_art_patterns) for _ in range(5)]
+    word = random.choice(["AWESOME", "COOL", "AMAZING", "GREAT", "NICE", "WOW"])
+    font = random.choice(_available_fonts)
+    ascii_text = generateAscii(font, word)
+    patterns.append(ascii_text)
+    return "\n".join(patterns)
