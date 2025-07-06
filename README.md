@@ -33,7 +33,7 @@ Just run the script:
 python main.py
 ```
 
-The tool will guide you through everything with its intuitive menus.
+The tool will guide you through everything with its menus.
 
 ### Main Menu Options
 
