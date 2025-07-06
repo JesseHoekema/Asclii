@@ -35,6 +35,25 @@ python main.py
 
 The tool will guide you through everything with its menus.
 
+### 📦 Module Usage
+
+You can also use it as a Python module in your projects:
+
+```python
+import [ folder name with asclii source].src.module as asclii
+
+# Generate ASCII art from text with a specific style (font)
+ascii_art = asclii.generateAscii("slant", "Hello World")
+print(ascii_art)
+
+# Generate a random ASCII art surprise
+random_art = asclii.randomAscii()
+print(random_art)
+```
+
+Make sure you have added the module folder to your project
+
+
 ### Main Menu Options
 
 1. **Generate ASCII from text** - Convert your text to ASCII art
