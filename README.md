@@ -51,7 +51,7 @@ random_art = asclii.randomAscii()
 print(random_art)
 ```
 
-Make sure you have added the module folder to your project
+Make sure you have cloned this repo into your project folder
 
 
 ### Main Menu Options
